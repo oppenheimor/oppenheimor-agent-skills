@@ -1,0 +1,17 @@
+{
+  "name": "oppenheimor-agent-skills",
+  "description": "Oppenheimor's personal Agent skills collection.",
+  "skills": [
+    {
+      "name": "personal-website-post-writer",
+      "path": "skills/personal-website-post-writer",
+      "description": "将上下文整理成 personal-website 中文文章，完成旧文风格抽样、敏感信息脱敏、renhua 润色、落盘、校验、提交和 push。"
+    },
+    {
+      "name": "renhua",
+      "path": "skills/renhua",
+      "description": "中文 AI/技术写作去 AI 味编辑器，保留事实、判断、经验和工程细节。"
+    }
+  ]
+}
+

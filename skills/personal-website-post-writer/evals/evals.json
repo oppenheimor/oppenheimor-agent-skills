@@ -1,0 +1,23 @@
+{
+  "skill_name": "personal-website-post-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我刚把一个静态站用 Docker 镜像部署到了自己的服务器，过程里涉及本地 docker build、docker save、scp、服务器 docker load、compose 启动和 nginx 反代。帮我基于上下文整理成一篇文章，参考 personal-website 里 2026.07 之前的文章，敏感信息脱敏，最后落到 posts 并提交 push。",
+      "expected_output": "在 personal-website/src/pages/posts 中创建一篇简洁的中文部署指南，完成敏感信息脱敏、旧文章风格抽样、renhua 去 AI 味、校验、commit 和 push。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "今天排查了 Clash Verge 公司域名直连失败的问题，日志显示规则命中了 DIRECT 但 DNS resolve failed。想写成一篇不啰嗦的踩坑记录，给以后自己查。按我的博客风格来，落到 personal-website，提交并 push。",
+      "expected_output": "创建一篇排障记录风格的中文文章，包含问题现象、分层检查、修复方法、验证过程，脱敏内部域名/DNS 信息，并且只提交文章文件。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我试了一套 AI 内容生产工作流，里面有选题、资料收集、初稿、去 AI 味和发布几个环节。请整理成文章，不要像产品宣传，要保留实际取舍和踩坑。参考老文章风格，最后用 renhua 处理。",
+      "expected_output": "创建一篇工作流复盘文章，保留具体经验和判断，避开 AI 味表达，并符合 personal-website 的 Markdown/frontmatter 规范。",
+      "files": []
+    }
+  ]
+}
