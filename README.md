@@ -1,37 +1,62 @@
 # Oppenheimor Agent Skills
 
-Personal agent skills, writing workflows, and reusable automation patterns.
+Personal Agent skills, writing workflows, and reusable automation patterns.
 
-这个仓库用于沉淀我自己长期使用的 Agent skills。每个 skill 都放在 `skills/<skill-name>/` 下，保持独立目录结构，方便按名称单独安装。
+这个仓库用于沉淀我长期使用的 Agent 工作流。每个 skill 都是一个可以独立安装、阅读和演进的工作单元，目标不是堆积提示词，而是把真实使用中反复验证过的判断、边界和交付流程保存下来。
 
-## 安装
+## 快速安装
 
-安装单个 skill：
+安装 `human-agent-meeting`：
+
+```bash
+npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill human-agent-meeting
+```
+
+安装其他单个 skill，只需替换 `--skill` 后的名称：
 
 ```bash
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill personal-website-post-writer
-```
-
-如果某个 skill 依赖另一个 skill，建议一起安装。例如 `personal-website-post-writer` 会使用 `renhua` 做中文去 AI 味编辑：
-
-```bash
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill renhua
-npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill personal-website-post-writer
 ```
+
+`personal-website-post-writer` 会调用 `renhua` 完成中文去 AI 味编辑，使用时建议两者一起安装。
 
 ## Skills
 
+| Skill | 用途 | 文档 |
+| --- | --- | --- |
+| `human-agent-meeting` | 把 Human 与 Agent 的讨论整理成可回放的 Markdown 决策纪要 | [README](./skills/human-agent-meeting/README.md) · [SKILL.md](./skills/human-agent-meeting/SKILL.md) |
+| `personal-website-post-writer` | 把真实技术经历整理成 personal-website 中文文章并完成发布流程 | [SKILL.md](./skills/personal-website-post-writer/SKILL.md) |
+| `renhua` | 清理中文 AI/技术写作中的模板腔和伪洞察表达 | [SKILL.md](./skills/renhua/SKILL.md) |
+
 ### `human-agent-meeting`
 
-在用户显式散会时，把当前 Human 与 Agent 的讨论整理成 Markdown 决策纪要。
+![Human-Agent Meeting：讨论经过质疑与修正，最终汇聚成决策纪要](./skills/human-agent-meeting/assets/human-agent-meeting-cover.png)
+
+把一次 Agent 对话视为一场真正的会议。用户显式“散会”时，它会回看当前任务，把结论、争议和行动沉淀成可以长期检索的 Markdown 决策纪要。
+
+```text
+/human-agent-meeting
+```
 
 它会处理：
 
-- 结论、决策依据和被否决方案
-- Human 质疑、Agent 修正及共识形成过程
-- 未决问题和明确形成的行动项
-- 项目归属、日期目录和同一会议修订
-- 凭证脱敏和事实边界检查
+- 结论优先，同时保留 Human 质疑、Agent 修正和共识形成过程；
+- 记录决策依据、约束、被否决方案、未决问题和明确行动项；
+- 按项目和日期归档，同一场会议再次触发时重整并更新原纪要；
+- 没有最终结论也可以归档，并标注 `unresolved` 或 `blocked`；
+- 只使用本次讨论真实出现的证据，对凭证强制脱敏；
+- 只接受用户显式触发，不自动制造会议纪要。
+
+默认归档结构：
+
+```text
+<project-root>/docs/meetings/
+└── YYYY-MM-DD/
+    └── <topic>-会议纪要.md
+```
+
+完整的触发方式、会议状态、模板结构和安全边界见 [`human-agent-meeting/README.md`](./skills/human-agent-meeting/README.md)。
 
 ### `personal-website-post-writer`
 
@@ -47,6 +72,8 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill p
 - 本地校验
 - commit 和 push
 
+执行规则见 [`personal-website-post-writer/SKILL.md`](./skills/personal-website-post-writer/SKILL.md)。
+
 ### `renhua`
 
 中文 AI/技术写作去 AI 味编辑器。
@@ -58,6 +85,8 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill p
 - 冒号讲义腔
 - 空泛总结
 - 顺滑但没有作者判断的表达
+
+执行规则见 [`renhua/SKILL.md`](./skills/renhua/SKILL.md)。
 
 ## 仓库结构
 
@@ -96,6 +125,7 @@ oppenheimor-agent-skills/
 ```text
 skills/<skill-name>/
 ├── SKILL.md
+├── README.md      # 可选，面向使用者的说明
 ├── references/   # 可选
 ├── scripts/      # 可选
 ├── assets/       # 可选
@@ -111,4 +141,12 @@ description: 简明描述触发场景和能力边界
 ---
 ```
 
-新增或修改 skill 后，同步更新根目录 `skills.json`。
+基本规则：
+
+- 目录名与 frontmatter `name` 保持一致；
+- `description` 同时说明触发场景、能力范围和默认产出；
+- 稳定模板、图片和其他输出资源放入 `assets/`；
+- 固定流程型 skill 尽量提供 `evals/evals.json`；
+- 新增或修改 skill 后，同步更新根目录 `skills.json` 和本 README。
+
+完整约定见 [`docs/conventions.md`](./docs/conventions.md)。
