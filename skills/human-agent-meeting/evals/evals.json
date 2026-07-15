@@ -1,0 +1,23 @@
+{
+  "skill_name": "human-agent-meeting",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "当前对话一直在讨论 /workspace/payment-service 的重试策略。Human 最初要求所有失败请求自动重试，Agent 指出 POST 可能产生重复扣款；Human 随后把约束改成只有具备 idempotency key 的请求才能重试。双方最终决定 GET 默认最多重试两次，POST 只有存在 idempotency key 时才能重试，具体退避参数待压测。现在用户输入：/human-agent-meeting",
+      "expected_output": "在项目根目录 docs/meetings/当前日期/ 下创建一份单话题 Markdown 纪要；状态为 partially_concluded；结论先行；回放从全量重试到幂等约束的关键转折；把退避参数列为未决问题；不虚构负责人或期限。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "当前工作目录碰巧在一个 Git 仓库里，但整段对话讨论的是个人职业选择，与仓库完全无关。双方已经形成阶段性判断。用户输入：/human-agent-meeting",
+      "expected_output": "不要把纪要写进当前 Git 仓库；只询问用户希望保存到哪个基础目录，并等待回答后再创建 YYYY-MM-DD/话题-会议纪要.md。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "同一段对话先独立讨论了产品定价并形成结论，随后又独立讨论了数据库迁移并形成另一项结论。此前今天已经生成过一份产品定价会议纪要，之后 Human 又推翻了其中的按席位收费，改为按用量收费。用户输入：/human-agent-meeting",
+      "expected_output": "先询问用户是合并还是按两个独立话题拆分；如果拆分，产品定价应更新同一会议的原文件、revision 加一并移除已推翻的旧结论，数据库迁移应创建另一份纪要；不得静默覆盖无法确认归属的同名文件。",
+      "files": []
+    }
+  ]
+}

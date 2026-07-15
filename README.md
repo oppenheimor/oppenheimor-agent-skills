@@ -21,6 +21,18 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill p
 
 ## Skills
 
+### `human-agent-meeting`
+
+在用户显式散会时，把当前 Human 与 Agent 的讨论整理成 Markdown 决策纪要。
+
+它会处理：
+
+- 结论、决策依据和被否决方案
+- Human 质疑、Agent 修正及共识形成过程
+- 未决问题和明确形成的行动项
+- 项目归属、日期目录和同一会议修订
+- 凭证脱敏和事实边界检查
+
 ### `personal-website-post-writer`
 
 把当前上下文、部署过程、排障记录、产品体验或 AI 工作流整理成 personal-website 里的中文文章。
@@ -54,6 +66,14 @@ oppenheimor-agent-skills/
 ├── README.md
 ├── skills.json
 ├── skills/
+│   ├── human-agent-meeting/
+│   │   ├── README.md
+│   │   ├── SKILL.md
+│   │   ├── assets/
+│   │   │   ├── human-agent-meeting-cover.png
+│   │   │   └── meeting-notes-template.md
+│   │   └── evals/
+│   │       └── evals.json
 │   ├── personal-website-post-writer/
 │   │   ├── SKILL.md
 │   │   └── evals/
@@ -92,4 +112,3 @@ description: 简明描述触发场景和能力边界
 ```
 
 新增或修改 skill 后，同步更新根目录 `skills.json`。
-

@@ -3,6 +3,11 @@
   "description": "Oppenheimor's personal Agent skills collection.",
   "skills": [
     {
+      "name": "human-agent-meeting",
+      "path": "skills/human-agent-meeting",
+      "description": "将当前 Human 与 Agent 的讨论整理成结论优先、关键过程可回放的 Markdown 决策纪要，按项目与日期归档。"
+    },
+    {
       "name": "personal-website-post-writer",
       "path": "skills/personal-website-post-writer",
       "description": "将上下文整理成 personal-website 中文文章，完成旧文风格抽样、敏感信息脱敏、renhua 润色、落盘、校验、提交和 push。"
@@ -14,4 +19,3 @@
     }
   ]
 }
-
