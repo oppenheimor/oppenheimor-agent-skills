@@ -17,6 +17,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill h
 ```bash
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill personal-website-post-writer
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill renhua
+npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill herdr-radar
 ```
 
 `personal-website-post-writer` 会调用 `renhua` 完成中文去 AI 味编辑，使用时建议两者一起安装。
@@ -26,6 +27,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill r
 | Skill | 用途 | 文档 |
 | --- | --- | --- |
 | `human-agent-meeting` | 把 Human 与 Agent 的讨论整理成可回放的 Markdown 决策纪要 | [README](./skills/human-agent-meeting/README.md) · [SKILL.md](./skills/human-agent-meeting/SKILL.md) |
+| `herdr-radar` | 增量收集 Herdr 官方动态与社区玩法，生成保留原始链接和媒体的中文阅读报告 | [SKILL.md](./skills/herdr-radar/SKILL.md) |
 | `personal-website-post-writer` | 把真实技术经历整理成 personal-website 中文文章并完成发布流程 | [SKILL.md](./skills/personal-website-post-writer/SKILL.md) |
 | `renhua` | 清理中文 AI/技术写作中的模板腔和伪洞察表达 | [SKILL.md](./skills/renhua/SKILL.md) |
 
@@ -57,6 +59,14 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill r
 ```
 
 完整的触发方式、会议状态、模板结构和安全边界见 [`human-agent-meeting/README.md`](./skills/human-agent-meeting/README.md)。
+
+### `herdr-radar`
+
+手动触发的 Herdr 增量情报雷达。它会读取上次进度，从 GitHub Releases、官方 Blog、官方与社区 X、插件市场和 GitHub 社区仓库收集新内容，去重过滤后生成中文 Markdown 阅读报告。
+
+它只负责信息收集和简单分析，不会安装插件、修改 Herdr 配置、自行实验或创建定时任务。首次运行默认回看最近 14 天，后续按来源独立推进游标，并重叠回看 7 天避免漏抓。环境中存在 `web-access` Skill 时会优先使用；没有时回退到宿主提供的联网与浏览器能力。
+
+执行规则、来源获取方式和报告格式见 [`herdr-radar/SKILL.md`](./skills/herdr-radar/SKILL.md)。
 
 ### `personal-website-post-writer`
 
@@ -103,6 +113,15 @@ oppenheimor-agent-skills/
 │   │   │   └── meeting-notes-template.md
 │   │   └── evals/
 │   │       └── evals.json
+│   ├── herdr-radar/
+│   │   ├── SKILL.md
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── references/
+│   │   │   ├── report-format.md
+│   │   │   └── sources.md
+│   │   └── scripts/
+│   │       └── radar_state.py
 │   ├── personal-website-post-writer/
 │   │   ├── SKILL.md
 │   │   └── evals/
