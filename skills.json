@@ -21,6 +21,11 @@
       "name": "renhua",
       "path": "skills/renhua",
       "description": "中文 AI/技术写作去 AI 味编辑器，保留事实、判断、经验和工程细节。"
+    },
+    {
+      "name": "x-video-downloader",
+      "path": "skills/x-video-downloader",
+      "description": "下载公开 X（Twitter）帖子中的最高分辨率 MP4，默认保存到本机桌面。"
     }
   ]
 }

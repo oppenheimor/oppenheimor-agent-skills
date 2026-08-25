@@ -18,6 +18,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill h
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill personal-website-post-writer
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill renhua
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill herdr-radar
+npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x-video-downloader
 ```
 
 `personal-website-post-writer` 会调用 `renhua` 完成中文去 AI 味编辑，使用时建议两者一起安装。
@@ -30,6 +31,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill h
 | `herdr-radar` | 增量收集 Herdr 官方动态与社区玩法，生成保留原始链接和媒体的中文阅读报告 | [SKILL.md](./skills/herdr-radar/SKILL.md) |
 | `personal-website-post-writer` | 把真实技术经历整理成 personal-website 中文文章并完成发布流程 | [SKILL.md](./skills/personal-website-post-writer/SKILL.md) |
 | `renhua` | 清理中文 AI/技术写作中的模板腔和伪洞察表达 | [SKILL.md](./skills/renhua/SKILL.md) |
+| `x-video-downloader` | 下载公开 X 帖子中的最高分辨率视频并保存到桌面 | [README](./skills/x-video-downloader/README.md) · [SKILL.md](./skills/x-video-downloader/SKILL.md) |
 
 ### `human-agent-meeting`
 
@@ -84,6 +86,12 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill h
 
 执行规则见 [`personal-website-post-writer/SKILL.md`](./skills/personal-website-post-writer/SKILL.md)。
 
+### `x-video-downloader`
+
+传入单条 X（Twitter）帖子链接，自动提取页面公开暴露的 MP4 变体，选择每个视频的最高分辨率版本并保存到 `~/Desktop`。它只处理具体帖子，不批量抓取账号，也不绕过私密内容、付费墙或 DRM。
+
+执行规则和命令行用法见 [`x-video-downloader/README.md`](./skills/x-video-downloader/README.md)。
+
 ### `renhua`
 
 中文 AI/技术写作去 AI 味编辑器。
@@ -126,10 +134,19 @@ oppenheimor-agent-skills/
 │   │   ├── SKILL.md
 │   │   └── evals/
 │   │       └── evals.json
-│   └── renhua/
+│   ├── renhua/
+│   │   ├── SKILL.md
+│   │   └── agents/
+│   │       └── openai.yaml
+│   └── x-video-downloader/
+│       ├── README.md
 │       ├── SKILL.md
-│       └── agents/
-│           └── openai.yaml
+│       ├── evals/
+│       │   └── evals.json
+│       ├── scripts/
+│       │   └── x_video_downloader.py
+│       └── tests/
+│           └── test_x_video_downloader.py
 ├── templates/
 │   └── skill/
 │       └── SKILL.md

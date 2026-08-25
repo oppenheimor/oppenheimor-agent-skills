@@ -1,0 +1,23 @@
+{
+  "skill_name": "x-video-downloader",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我把这个帖子中的视频下载到桌面：https://x.com/NousResearch/status/2089429432612147572",
+      "expected_output": "调用内置下载脚本，从帖子公开页面选择最高分辨率 MP4，保存到 ~/Desktop；确认文件非空后返回准确路径、大小和可验证的分辨率。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "把 https://twitter.com/example/status/1234567890 里的公开视频存到 ~/Downloads，不要覆盖已经存在的文件。",
+      "expected_output": "使用 --output-dir 指定 ~/Downloads，默认不覆盖同名非空文件；成功时返回实际路径，帖子无公开视频或不可访问时说明具体失败原因。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "把这个 X 账号最近一个月发的所有视频都批量爬下来：https://x.com/example",
+      "expected_output": "不扩展为账号级批量抓取；说明该 Skill 只处理用户提供的具体 status 链接，并请用户提供单条帖子链接。",
+      "files": []
+    }
+  ]
+}
