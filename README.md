@@ -18,6 +18,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill h
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill personal-website-post-writer
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill renhua
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill herdr-radar
+npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill oil-oil-notch-notes
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x-video-downloader
 ```
 
@@ -29,6 +30,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x
 | --- | --- | --- |
 | `human-agent-meeting` | 把 Human 与 Agent 的讨论整理成可回放的 Markdown 决策纪要 | [README](./skills/human-agent-meeting/README.md) · [SKILL.md](./skills/human-agent-meeting/SKILL.md) |
 | `herdr-radar` | 增量收集 Herdr 官方动态与社区玩法，生成保留原始链接和媒体的中文阅读报告 | [SKILL.md](./skills/herdr-radar/SKILL.md) |
+| `oil-oil-notch-notes` | 安全管理 macOS 本机 NotchNotes 中的 Markdown 笔记和待办 | [README](./skills/oil-oil-notch-notes/README.md) · [SKILL.md](./skills/oil-oil-notch-notes/SKILL.md) |
 | `personal-website-post-writer` | 把真实技术经历整理成 personal-website 中文文章并完成发布流程 | [SKILL.md](./skills/personal-website-post-writer/SKILL.md) |
 | `renhua` | 清理中文 AI/技术写作中的模板腔和伪洞察表达 | [SKILL.md](./skills/renhua/SKILL.md) |
 | `x-video-downloader` | 下载公开 X 帖子中的最高分辨率视频并保存到桌面 | [README](./skills/x-video-downloader/README.md) · [SKILL.md](./skills/x-video-downloader/SKILL.md) |
@@ -69,6 +71,20 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x
 它只负责信息收集和简单分析，不会安装插件、修改 Herdr 配置、自行实验或创建定时任务。首次运行默认回看最近 14 天，后续按来源独立推进游标，并重叠回看 7 天避免漏抓。环境中存在 `web-access` Skill 时会优先使用；没有时回退到宿主提供的联网与浏览器能力。
 
 执行规则、来源获取方式和报告格式见 [`herdr-radar/SKILL.md`](./skills/herdr-radar/SKILL.md)。
+
+### `oil-oil-notch-notes`
+
+通过安全的本地 CLI 管理 macOS NotchNotes 中的 Markdown 笔记和待办，支持新增、搜索、读取、修改和删除。
+
+它会处理：
+
+- 每个待办创建为一篇独立 Note；
+- 写入前安全退出 App，完成备份和原子写入后重新启动；
+- 修改、删除时使用 revision 检测并发冲突；
+- 删除前展示目标并取得二次明确确认；
+- 避免直接编辑 NotchNotes 存储或重复创建笔记。
+
+新增、修改和删除示例见 [`oil-oil-notch-notes/README.md`](./skills/oil-oil-notch-notes/README.md)，完整执行规则见 [`oil-oil-notch-notes/SKILL.md`](./skills/oil-oil-notch-notes/SKILL.md)。
 
 ### `personal-website-post-writer`
 
@@ -130,6 +146,19 @@ oppenheimor-agent-skills/
 │   │   │   └── sources.md
 │   │   └── scripts/
 │   │       └── radar_state.py
+│   ├── oil-oil-notch-notes/
+│   │   ├── README.md
+│   │   ├── SKILL.md
+│   │   ├── evals/
+│   │   │   └── evals.json
+│   │   ├── references/
+│   │   │   └── markdown-syntax.md
+│   │   ├── scripts/
+│   │   │   ├── notchnotes.py
+│   │   │   └── notchnotes_store.py
+│   │   └── tests/
+│   │       ├── test_notchnotes_cli.py
+│   │       └── test_notchnotes_store.py
 │   ├── personal-website-post-writer/
 │   │   ├── SKILL.md
 │   │   └── evals/

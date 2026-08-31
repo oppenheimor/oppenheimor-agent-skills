@@ -1,0 +1,29 @@
+{
+  "skill_name": "oil-oil-notch-notes",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我记个待办：周五前把 NotchNotes CLI 做完。需要支持安全退出 App、原子写入和冲突检测。",
+      "expected_output": "只创建一篇新的 NotchNotes Note；第一条有意义的内容是未勾选 Markdown 任务，正文完整保留用户提供的说明。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "把 NotchNotes 里‘周五前把 NotchNotes CLI 做完’这条的说明改成：优先完成 CRUD，MCP 后面再做。",
+      "expected_output": "解析唯一笔记，读取当前 revision，只修改指定说明并携带该 revision 更新，不改变待办勾选状态。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "删除 NotchNotes 里那条交水费的待办。",
+      "expected_output": "解析并预览目标笔记，然后先询问用户是否明确确认；未得到二次确认前不调用 delete。",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "把这段会议记录存到 Obsidian，标题叫发布复盘。",
+      "expected_output": "不触发 oil-oil-notch-notes，因为用户明确指定了另一个笔记应用。",
+      "files": []
+    }
+  ]
+}

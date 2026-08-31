@@ -13,6 +13,11 @@
       "description": "增量收集 Herdr 官方动态与社区玩法，生成保留原始链接和媒体、附带简要判断的中文 Markdown 阅读报告。"
     },
     {
+      "name": "oil-oil-notch-notes",
+      "path": "skills/oil-oil-notch-notes",
+      "description": "安全管理 macOS 本机 NotchNotes 中的 Markdown 笔记和待办，支持新增、搜索、读取、修改和删除。"
+    },
+    {
       "name": "personal-website-post-writer",
       "path": "skills/personal-website-post-writer",
       "description": "将上下文整理成 personal-website 中文文章，完成旧文风格抽样、敏感信息脱敏、renhua 润色、落盘、校验、提交和 push。"
