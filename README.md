@@ -20,6 +20,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill r
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill herdr-radar
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill oil-oil-notch-notes
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x-video-downloader
+npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill toolbox-cover
 ```
 
 `personal-website-post-writer` 会调用 `renhua` 完成中文去 AI 味编辑，使用时建议两者一起安装。
@@ -33,7 +34,14 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x
 | `oil-oil-notch-notes` | 安全管理 macOS 本机 NotchNotes 中的 Markdown 笔记和待办 | [README](./skills/oil-oil-notch-notes/README.md) · [SKILL.md](./skills/oil-oil-notch-notes/SKILL.md) |
 | `personal-website-post-writer` | 把真实技术经历整理成 personal-website 中文文章并完成发布流程 | [SKILL.md](./skills/personal-website-post-writer/SKILL.md) |
 | `renhua` | 清理中文 AI/技术写作中的模板腔和伪洞察表达 | [SKILL.md](./skills/renhua/SKILL.md) |
+| `toolbox-cover` | 按素材类型生成统一 16:9 封面，保留原始高清预览 | [README](./skills/toolbox-cover/README.md) · [SKILL.md](./skills/toolbox-cover/SKILL.md) |
 | `x-video-downloader` | 下载公开 X 帖子中的最高分辨率视频并保存到桌面 | [README](./skills/x-video-downloader/README.md) · [SKILL.md](./skills/x-video-downloader/SKILL.md) |
+
+### `toolbox-cover`
+
+把宣传横图、截图和图标处理成统一的 16:9 工具封面，点击预览保留原始高清图。按素材类型调整构图，不强制套蓝色背景；支持透明留白清理、低清与极端比例提醒，以及经确认的局部裁切。`image_gen` 只在需要背景时使用，不重绘文字、Logo 或 UI。
+
+需从已安装 `sharp` 的目标项目根目录执行。使用说明见 [`toolbox-cover/README.md`](./skills/toolbox-cover/README.md)。
 
 ### `human-agent-meeting`
 

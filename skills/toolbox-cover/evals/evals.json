@@ -1,0 +1,11 @@
+{
+  "skill_name": "toolbox-cover",
+  "evals": [
+    {"id": 1, "prompt": "把 archify 的 1440×810 原图做成封面，不要大蓝框，点击看原始高清图。", "files": ["public/tools/archify/cover-full.webp"], "expected_output": "1200×675 thumbnail filling the canvas; native-size lossless uncropped preview; no upscaling."},
+    {"id": 2, "prompt": "处理 ego(lite) 横向宣传图，保留品牌构图。", "files": ["public/tools/ego-lite/cover-full.webp"], "expected_output": "Full banner composition, no unnecessary background or decorative grid."},
+    {"id": 3, "prompt": "处理 Herdr 超宽终端截图，不能裁掉界面。", "files": ["public/tools/herdr/cover-full.webp"], "expected_output": "Contain complete screenshot with source-matched flat matte; original retained for preview."},
+    {"id": 4, "prompt": "处理带透明留白的黑色方形图标。", "files": [], "expected_output": "Trim fully transparent padding only, centered icon with contrasting matte; original preview untouched."},
+    {"id": 5, "prompt": "处理一张很长的网页截图，缩略图需要可识别。", "files": [], "expected_output": "Warn about aspect ratio and ask for approval of a representative crop; never silently crop original."},
+    {"id": 6, "prompt": "只有一个 24px 图标，做成高清封面。", "files": [], "expected_output": "Explain insufficient resolution; no upscaling or invented detail; request higher-resolution source."}
+  ]
+}

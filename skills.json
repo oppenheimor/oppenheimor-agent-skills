@@ -28,6 +28,11 @@
       "description": "中文 AI/技术写作去 AI 味编辑器，保留事实、判断、经验和工程细节。"
     },
     {
+      "name": "toolbox-cover",
+      "path": "skills/toolbox-cover",
+      "description": "按素材类型生成统一 16:9 工具封面，保留原始高清预览；支持透明图标、自适应底色和可选 image_gen 背景。"
+    },
+    {
       "name": "x-video-downloader",
       "path": "skills/x-video-downloader",
       "description": "下载公开 X（Twitter）帖子中的最高分辨率 MP4，默认保存到本机桌面。"
