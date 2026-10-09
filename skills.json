@@ -36,6 +36,11 @@
       "name": "x-video-downloader",
       "path": "skills/x-video-downloader",
       "description": "下载公开 X（Twitter）帖子中的最高分辨率 MP4，默认保存到本机桌面。"
+    },
+    {
+      "name": "simple-answer",
+      "path": "skills/simple-answer",
+      "description": "仅在显式触发 $simple-answer 后，用简短、通俗的话回答，减少冗余和专业黑话。"
     }
   ]
 }

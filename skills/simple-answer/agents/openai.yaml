@@ -1,0 +1,6 @@
+interface:
+  display_name: 简洁回答
+  short_description: 用简短、通俗的话回答，减少黑话和冗余
+  default_prompt: "$simple-answer"
+policy:
+  allow_implicit_invocation: false
