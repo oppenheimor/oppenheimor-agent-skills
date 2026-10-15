@@ -1,0 +1,6 @@
+interface:
+  display_name: "Oppenheimor 黑猫配图"
+  short_description: "以金黄大眼、红领巾黑猫 IP 生成清爽手绘中文正文插图"
+  default_prompt: "Use $oppenheimor-cat-illustrations to 为这篇中文文章设计并生成红领巾黑猫正文配图，使用随附角色参考图保持 IP 一致。"
+policy:
+  allow_implicit_invocation: true

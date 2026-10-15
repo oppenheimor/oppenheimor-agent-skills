@@ -21,6 +21,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill h
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill oil-oil-notch-notes
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill x-video-downloader
 npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill toolbox-cover
+npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill oppenheimor-cat-illustrations
 ```
 
 `personal-website-post-writer` 会调用 `renhua` 完成中文去 AI 味编辑，使用时建议两者一起安装。
@@ -29,6 +30,7 @@ npx skills add https://github.com/oppenheimor/oppenheimor-agent-skills --skill t
 
 | Skill | 用途 | 文档 |
 | --- | --- | --- |
+| `oppenheimor-cat-illustrations` | 用自有红领巾黑猫 IP 生成白底手绘中文正文插图 | [README](./skills/oppenheimor-cat-illustrations/README.md) · [SKILL.md](./skills/oppenheimor-cat-illustrations/SKILL.md) |
 | `human-agent-meeting` | 把 Human 与 Agent 的讨论整理成可回放的 Markdown 决策纪要 | [README](./skills/human-agent-meeting/README.md) · [SKILL.md](./skills/human-agent-meeting/SKILL.md) |
 | `herdr-radar` | 增量收集 Herdr 官方动态与社区玩法，生成保留原始链接和媒体的中文阅读报告 | [SKILL.md](./skills/herdr-radar/SKILL.md) |
 | `oil-oil-notch-notes` | 安全管理 macOS 本机 NotchNotes 中的 Markdown 笔记和待办 | [README](./skills/oil-oil-notch-notes/README.md) · [SKILL.md](./skills/oil-oil-notch-notes/SKILL.md) |

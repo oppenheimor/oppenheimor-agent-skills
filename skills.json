@@ -3,6 +3,11 @@
   "description": "Oppenheimor's personal Agent skills collection.",
   "skills": [
     {
+      "name": "oppenheimor-cat-illustrations",
+      "path": "skills/oppenheimor-cat-illustrations",
+      "description": "使用自有红领巾黑猫 IP 为中文文章设计配图策略并生成白底手绘插图，以随附参考图保持角色一致。"
+    },
+    {
       "name": "human-agent-meeting",
       "path": "skills/human-agent-meeting",
       "description": "将当前 Human 与 Agent 的讨论整理成结论优先、关键过程可回放的 Markdown 决策纪要，按项目与日期归档。"
@@ -41,6 +46,11 @@
       "name": "simple-answer",
       "path": "skills/simple-answer",
       "description": "仅在显式触发 $simple-answer 后，用简短、通俗的话回答，减少冗余和专业黑话。"
+    },
+    {
+      "name": "herdr",
+      "path": "skills/herdr",
+      "description": "在 Herdr 管理的 pane 中控制工作区、标签页、终端和代理，仅在用户显式提及或要求时启用。"
     }
   ]
 }
